@@ -1,0 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jessyca.costa <jessyca.costa@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/18 20:04:03 by jessyca.cos       #+#    #+#             */
+/*   Updated: 2025/03/18 20:53:11 by jessyca.cos      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*
+Assignment name	: ft_strpbrk
+Expected files	: ft_strpbrk.c
+Allowed functions: None
+---------------------------------------------------------------
+
+Reproduce exactly the behavior of the function strpbrk
+(man strpbrk).
+
+The function should be prototyped as follows:
+
+char	*ft_strpbrk(const char *s1, const char *s2);
+*/
+
+#include <stdio.h>
+
+char	*ft_strpbrk(const char *s1, const char *s2)
+{
+	size_t i;
+	size_t j;
+
+	i = 0;
+	while (s1[i])
+	{
+		j = 0;
+		while (s2[j])
+		{
+			if (s2[j] == s1[i])
+                return ((char *)&s1[i]);
+			j++;
+		}
+		i++;
+	}
+	return (NULL);    
+}
+
+int main (int argc, char *argv[])
+{
+    if (argc == 3)
+        printf("%s \n", ft_strpbrk(argv[1], argv[2]));
+    return (0);
+}
